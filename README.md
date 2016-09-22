@@ -1,5 +1,7 @@
 # Thor::Hollaback
 
+[![Build Status](https://travis-ci.com/localytics/thor-hollaback.svg?token=kQUiABmGkzyHdJdMnCnv&branch=master)](https://travis-ci.com/localytics/thor-hollaback)
+
 Adds callbacks to thor commands.
 
 ## Installation
@@ -20,7 +22,36 @@ Or install it yourself as:
 
 ## Usage
 
+Uses the [`hollaback`](https://github.com/localytics/hollaback) gem to add callbacks to [`thor`](https://github.com/erikhuda/thor) commands. Example below:
 
+```ruby
+class CLI < Thor
+  desc 'test', 'Test command'
+  before :say_hello
+  after :say_goodbye
+  after { puts '- Thor::Hollaback' }
+  around :say
+  def test
+    puts 'How are you?'
+  end
+
+  no_commands do
+    def say_hello
+      puts 'Hello!'
+    end
+
+    def say_goodbye
+      puts 'Goodbye!'
+    end
+
+    def say
+      puts 'Speaking...'
+      yield
+      puts '...done.'
+    end
+  end
+end
+```
 
 ## Development
 
