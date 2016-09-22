@@ -3,9 +3,9 @@ require 'test_helper'
 class Thor
   class HollabackTest < Minitest::Test
     class CallbackCLI < Thor
-      before_all :say_hello
-      after_all :say_goodbye
-      around_all :say
+      class_before :say_hello
+      class_after :say_goodbye
+      class_around :say
 
       desc 'alpha', 'Alpha command'
       after { puts '- Thor::Hollaback' }

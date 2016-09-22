@@ -6,20 +6,20 @@ class Thor
   module Hollaback
     module ClassExt
       # Methods for overall callbacks
-      def all_callback_chain
-        @all_callback_chain ||= ::Hollaback::Chain.new
+      def class_callback_chain
+        @class_callback_chain ||= ::Hollaback::Chain.new
       end
 
-      def after_all(execute = nil, &block)
-        all_callback_chain.after(execute, &block)
+      def class_after(execute = nil, &block)
+        class_callback_chain.after(execute, &block)
       end
 
-      def before_all(execute = nil, &block)
-        all_callback_chain.before(execute, &block)
+      def class_before(execute = nil, &block)
+        class_callback_chain.before(execute, &block)
       end
 
-      def around_all(execute = nil, &block)
-        all_callback_chain.around(execute, &block)
+      def class_around(execute = nil, &block)
+        class_callback_chain.around(execute, &block)
       end
 
       # Methods for individual command callbacks
@@ -52,10 +52,10 @@ class Thor
       end
 
       def run(cli, *args)
-        if cli.class.all_callback_chain.empty? && callback_chain.empty?
+        if callback_chain.empty? && cli.class.class_callback_chain.empty?
           super
         else
-          combined = callback_chain + cli.class.all_callback_chain
+          combined = callback_chain + cli.class.class_callback_chain
           combined.compile { super }.call(cli)
         end
       end
