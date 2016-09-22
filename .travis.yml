@@ -1,6 +1,7 @@
 language: ruby
 rvm: 2.3.1
 cache: bundler
+before_install: bundle config --local https://localytics.artifactoryonline.com/localytics/api/gems/ruby-gems-virtual/ travis-ci:$ARTIFACTORY_PASSWORD
 script:
 - bundle exec rake
 - bundle exec rubocop
