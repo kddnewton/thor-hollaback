@@ -24,16 +24,21 @@ Or install it yourself as:
 
 ## Usage
 
-Uses the [`hollaback`](https://github.com/localytics/hollaback) gem to add callbacks to [`thor`](https://github.com/erikhuda/thor) commands. Example below:
+Uses the [`hollaback`](https://github.com/localytics/hollaback) gem to add callbacks to [`thor`](https://github.com/erikhuda/thor) commands. You can set CLI-level callbacks with the macros `before_all`, `after_all`, and `around_all`. You can set command-level callbacks with `before`, `after`, and `around`. Example below.
 
 ```ruby
 class CLI < Thor
-  desc 'test', 'Test command'
-  before :say_hello
-  after :say_goodbye
-  after { puts '- Thor::Hollaback' }
+  before_all :say_hello
+  after_all :say_goodbye
+
+  desc 'first_test', 'First test command'
   around :say
-  def test
+  def first_test
+    puts 'How are you?'
+  end
+
+  desc 'second_test', 'Second test command'
+  def second_test
     puts 'How are you?'
   end
 
@@ -53,6 +58,28 @@ class CLI < Thor
     end
   end
 end
+```
+
+When invoked, the above CLI results with:
+
+```
+irb(main):001:0> CLI.start(['first_test'])
+Hello!
+Speaking...
+How are you?
+...done.
+Goodbye!
+=> nil
+```
+
+and
+
+```
+irb(main):001:0> CLI.start(['second_test'])
+Hello!
+How are you?
+Goodbye!
+=> nil
 ```
 
 ## Development
