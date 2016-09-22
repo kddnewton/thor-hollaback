@@ -2,14 +2,22 @@ require 'test_helper'
 
 class Thor
   class HollabackTest < Minitest::Test
-    class CLI < Thor
-      desc 'test', 'Test command'
-      before :say_hello
-      after :say_goodbye
+    class CallbackCLI < Thor
+      before_all :say_hello
+      after_all :say_goodbye
+      around_all :say
+
+      desc 'alpha', 'Alpha command'
       after { puts '- Thor::Hollaback' }
-      around :say
-      def test
+      def alpha
         puts 'How are you?'
+      end
+
+      desc 'beta', 'Beta command'
+      before :say_hello
+      around :say
+      def beta
+        puts 'Repeating myself'
       end
 
       no_commands do
@@ -29,17 +37,34 @@ class Thor
       end
     end
 
-    def test_calls_callbacks
-      stdout, = capture_io { CLI.start(['test']) }
+    class EmptyCLI < Thor
+      desc 'gamma', 'Gamma command'
+      def gamma
+        print 'Hello world'
+      end
+    end
+
+    def test_alpha
+      stdout, = capture_io { CallbackCLI.start(['alpha']) }
       expected = [
-        'Speaking...',
-        'Hello!',
-        'How are you?',
-        'Goodbye!',
-        '- Thor::Hollaback',
-        '...done.'
+        'Speaking...', 'Hello!', 'How are you?',
+        '- Thor::Hollaback', 'Goodbye!', '...done.'
       ]
       assert_equal expected, stdout.split("\n")
+    end
+
+    def test_beta
+      stdout, = capture_io { CallbackCLI.start(['beta']) }
+      expected = [
+        'Speaking...', 'Hello!', 'Speaking...', 'Hello!',
+        'Repeating myself', '...done.', 'Goodbye!', '...done.'
+      ]
+      assert_equal expected, stdout.split("\n")
+    end
+
+    def test_empty
+      stdout, = capture_io { EmptyCLI.start(['gamma']) }
+      assert_equal 'Hello world', stdout
     end
 
     def test_version
