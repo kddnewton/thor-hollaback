@@ -52,7 +52,9 @@ class Thor
       end
 
       def run(cli, *args)
-        if !callback_chain || (callback_chain.empty? && cli.class.class_callback_chain.empty?)
+        if !callback_chain ||
+           (callback_chain.empty? && cli.class.class_callback_chain.empty?)
+
           super
         else
           combined = callback_chain + cli.class.class_callback_chain
