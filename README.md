@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/localytics/thor-hollaback.svg?branch=master)](https://travis-ci.org/localytics/thor-hollaback)
 [![Coverage Status](https://coveralls.io/repos/github/localytics/thor-hollaback/badge.svg?branch=master)](https://coveralls.io/github/localytics/thor-hollaback?branch=master)
+[![Gem Version](https://img.shields.io/gem/v/thor-hollaback.svg?maxAge=2592000)](https://rubygems.org/gems/thor-hollaback)
 
 Adds callbacks to thor commands.
 
