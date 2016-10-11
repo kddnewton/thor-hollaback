@@ -1,6 +1,7 @@
 # Thor::Hollaback
 
 [![Build Status](https://travis-ci.org/localytics/thor-hollaback.svg?branch=master)](https://travis-ci.org/localytics/thor-hollaback)
+[![Coverage Status](https://coveralls.io/repos/github/localytics/thor-hollaback/badge.svg?branch=master)](https://coveralls.io/github/localytics/thor-hollaback?branch=master)
 
 Adds callbacks to thor commands.
 
