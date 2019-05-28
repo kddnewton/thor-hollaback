@@ -1,14 +1,6 @@
 AllCops:
   DisplayCopNames: true
   DisplayStyleGuide: true
-  TargetRubyVersion: 2.1
+  TargetRubyVersion: 2.6
   Exclude:
   - 'vendor/**/*'
-
-Style/Documentation:
-  Enabled: false
-
-Style/PercentLiteralDelimiters:
-  PreferredDelimiters:
-    '%w': '[]'
-    '%i': '[]'

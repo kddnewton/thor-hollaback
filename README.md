@@ -1,7 +1,6 @@
 # Thor::Hollaback
 
-[![Build Status](https://travis-ci.org/localytics/thor-hollaback.svg?branch=master)](https://travis-ci.org/localytics/thor-hollaback)
-[![Coverage Status](https://coveralls.io/repos/github/localytics/thor-hollaback/badge.svg?branch=master)](https://coveralls.io/github/localytics/thor-hollaback?branch=master)
+[![Build Status](https://travis-ci.com/kddeisz/thor-hollaback.svg?branch=master)](https://travis-ci.com/kddeisz/thor-hollaback)
 [![Gem Version](https://img.shields.io/gem/v/thor-hollaback.svg?maxAge=2592000)](https://rubygems.org/gems/thor-hollaback)
 
 Adds callbacks to thor commands.
@@ -24,7 +23,7 @@ Or install it yourself as:
 
 ## Usage
 
-Uses the [`hollaback`](https://github.com/localytics/hollaback) gem to add callbacks to [`thor`](https://github.com/erikhuda/thor) commands. You can set CLI-level callbacks with the macros `before_all`, `after_all`, and `around_all`. You can set command-level callbacks with `before`, `after`, and `around`. Example below.
+Uses the [`hollaback`](https://github.com/kddeisz/hollaback) gem to add callbacks to [`thor`](https://github.com/erikhuda/thor) commands. You can set CLI-level callbacks with the macros `before_all`, `after_all`, and `around_all`. You can set command-level callbacks with `before`, `after`, and `around`. Example below.
 
 ```ruby
 class CLI < Thor
@@ -90,7 +89,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/localytics/thor-hollaback.
+Bug reports and pull requests are welcome on GitHub at https://github.com/kddeisz/thor-hollaback.
 
 ## License
 

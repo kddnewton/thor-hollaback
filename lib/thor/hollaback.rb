@@ -1,9 +1,12 @@
+# frozen_string_literal: true
+
 require 'thor'
 require 'hollaback'
 require 'thor/hollaback/version'
 
 class Thor
   module Hollaback
+    # Extension that get loaded into the main Thor class
     module ClassExt
       # Methods for overall callbacks
       def class_callback_chain
@@ -46,6 +49,7 @@ class Thor
       end
     end
 
+    # Extensions that get loaded into the Thor command class
     module CommandExt
       def self.prepended(base)
         base.send(:attr_accessor, :callback_chain)
