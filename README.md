@@ -1,7 +1,7 @@
 # Thor::Hollaback
 
-[![Build Status](https://travis-ci.com/kddeisz/thor-hollaback.svg?branch=master)](https://travis-ci.com/kddeisz/thor-hollaback)
-[![Gem Version](https://img.shields.io/gem/v/thor-hollaback.svg?maxAge=2592000)](https://rubygems.org/gems/thor-hollaback)
+[![Build Status](https://github.com/kddeisz/thor-hollaback/workflows/Main/badge.svg)](https://github.com/kddeisz/thor-hollaback/actions)
+[![Gem Version](https://img.shields.io/gem/v/thor-hollaback.svg)](https://rubygems.org/gems/thor-hollaback)
 
 Adds callbacks to thor commands.
 

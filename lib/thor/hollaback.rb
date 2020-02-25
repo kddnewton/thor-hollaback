@@ -44,7 +44,13 @@ class Thor
 
       def create_command(meth)
         super
-        commands[meth].callback_chain = callback_chain if commands[meth]
+
+        # The following condition will fail if the user attempts to add a
+        # command without a description or something like method_missing. For
+        # more details, see Thor::create_command.
+        return unless commands[meth]
+
+        commands[meth].callback_chain = callback_chain
         @callback_chain = nil
       end
     end

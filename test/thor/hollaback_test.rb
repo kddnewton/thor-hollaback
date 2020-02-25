@@ -69,6 +69,11 @@ class Thor
       assert_equal 'Hello world', stdout
     end
 
+    def test_bad_command
+      stdout, = capture_io { Class.new(Thor) { def command; end } }
+      assert_operator stdout, :start_with?, '[WARNING]'
+    end
+
     def test_version
       refute_nil Thor::Hollaback::VERSION
     end
