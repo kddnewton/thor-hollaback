@@ -27,8 +27,8 @@ Uses the [`hollaback`](https://github.com/kddeisz/hollaback) gem to add callback
 
 ```ruby
 class CLI < Thor
-  before_all :say_hello
-  after_all :say_goodbye
+  class_before :say_hello
+  class_after :say_goodbye
 
   desc 'first_test', 'First test command'
   around :say
