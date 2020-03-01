@@ -23,12 +23,12 @@ Or install it yourself as:
 
 ## Usage
 
-Uses the [`hollaback`](https://github.com/kddeisz/hollaback) gem to add callbacks to [`thor`](https://github.com/erikhuda/thor) commands. You can set CLI-level callbacks with the macros `before_all`, `after_all`, and `around_all`. You can set command-level callbacks with `before`, `after`, and `around`. Example below.
+Uses the [`hollaback`](https://github.com/kddeisz/hollaback) gem to add callbacks to [`thor`](https://github.com/erikhuda/thor) commands. You can set CLI-level callbacks with the macros `class_before`, `class_after`, and `class_around`. You can set command-level callbacks with `before`, `after`, and `around`. Example below.
 
 ```ruby
 class CLI < Thor
-  before_all :say_hello
-  after_all :say_goodbye
+  class_before :say_hello
+  class_after :say_goodbye
 
   desc 'first_test', 'First test command'
   around :say
