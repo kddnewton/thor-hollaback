@@ -7,8 +7,8 @@ require 'thor/hollaback/version'
 Gem::Specification.new do |spec|
   spec.name          = 'thor-hollaback'
   spec.version       = Thor::Hollaback::VERSION
-  spec.authors       = ['Kevin Deisz']
-  spec.email         = ['kevin.deisz@gmail.com']
+  spec.authors       = ['Kevin Newton']
+  spec.email         = ['kddnewton@gmail.com']
 
   spec.summary       = 'Adds callbacks to thor commands'
   spec.homepage      = 'https://github.com/kddeisz/thor-hollaback'
