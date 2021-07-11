@@ -1,6 +1,6 @@
 # Thor::Hollaback
 
-[![Build Status](https://github.com/kddeisz/thor-hollaback/workflows/Main/badge.svg)](https://github.com/kddeisz/thor-hollaback/actions)
+[![Build Status](https://github.com/kddnewton/thor-hollaback/workflows/Main/badge.svg)](https://github.com/kddnewton/thor-hollaback/actions)
 [![Gem Version](https://img.shields.io/gem/v/thor-hollaback.svg)](https://rubygems.org/gems/thor-hollaback)
 
 Adds callbacks to thor commands.
@@ -23,7 +23,7 @@ Or install it yourself as:
 
 ## Usage
 
-Uses the [`hollaback`](https://github.com/kddeisz/hollaback) gem to add callbacks to [`thor`](https://github.com/erikhuda/thor) commands. You can set CLI-level callbacks with the macros `class_before`, `class_after`, and `class_around`. You can set command-level callbacks with `before`, `after`, and `around`. Example below.
+Uses the [`hollaback`](https://github.com/kddnewton/hollaback) gem to add callbacks to [`thor`](https://github.com/erikhuda/thor) commands. You can set CLI-level callbacks with the macros `class_before`, `class_after`, and `class_around`. You can set command-level callbacks with `before`, `after`, and `around`. Example below.
 
 ```ruby
 class CLI < Thor
@@ -89,7 +89,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/kddeisz/thor-hollaback.
+Bug reports and pull requests are welcome on GitHub at https://github.com/kddnewton/thor-hollaback.
 
 ## License
 
