@@ -1,18 +1,26 @@
 # frozen_string_literal: true
 
-lib = File.expand_path('lib', __dir__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'thor/hollaback/version'
+require_relative 'lib/thor/hollaback/version'
+
+version = Thor::Hollaback::VERSION
+repository = 'https://github.com/kddnewton/thor-hollaback'
 
 Gem::Specification.new do |spec|
   spec.name          = 'thor-hollaback'
-  spec.version       = Thor::Hollaback::VERSION
+  spec.version       = version
   spec.authors       = ['Kevin Newton']
   spec.email         = ['kddnewton@gmail.com']
 
   spec.summary       = 'Adds callbacks to thor commands'
-  spec.homepage      = 'https://github.com/kddnewton/thor-hollaback'
+  spec.homepage      = repository
   spec.license       = 'MIT'
+
+  spec.metadata = {
+    'bug_tracker_uri' => "#{repository}/issues",
+    'changelog_uri' => "#{repository}/blob/v#{version}/CHANGELOG.md",
+    'source_code_uri' => repository,
+    'rubygems_mfa_required' => 'true'
+  }
 
   files              = `git ls-files -z`.split("\x0")
   spec.files         = files.reject { |f| f.match(%r{^test/}) }

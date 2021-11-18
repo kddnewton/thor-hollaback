@@ -6,11 +6,18 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## [Unreleased]
 
+## [0.2.1] - 2021-11-17
+
+### Changed
+
+- Require MFA for releasing.
+
 ## [0.2.0] - 2019-12-18
 
 ### Changed
 
 - Relaxed the version requirement on `thor` to allow the newer versions.
 
-[unreleased]: https://github.com/kddnewton/thor-hollaback/compare/v0.2.0...HEAD
+[unreleased]: https://github.com/kddnewton/thor-hollaback/compare/v0.2.1...HEAD
+[0.2.1]: https://github.com/kddnewton/thor-hollaback/compare/v0.2.0...v0.2.1
 [0.2.0]: https://github.com/kddnewton/thor-hollaback/compare/7c2c70...v0.2.0
