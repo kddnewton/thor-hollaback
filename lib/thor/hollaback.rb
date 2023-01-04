@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require 'thor'
-require 'hollaback'
-require 'thor/hollaback/version'
+require "thor"
+require "hollaback"
+require "thor/hollaback/version"
 
 class Thor
   module Hollaback
@@ -63,8 +63,7 @@ class Thor
 
       def run(cli, *args)
         if !callback_chain ||
-           (callback_chain.empty? && cli.class.class_callback_chain.empty?)
-
+             (callback_chain.empty? && cli.class.class_callback_chain.empty?)
           super
         else
           combined = callback_chain + cli.class.class_callback_chain

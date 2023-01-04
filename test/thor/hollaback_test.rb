@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'test_helper'
+require "test_helper"
 
 class Thor
   class HollabackTest < Minitest::Test
@@ -9,69 +9,85 @@ class Thor
       class_after :say_goodbye
       class_around :say
 
-      desc 'alpha', 'Alpha command'
-      after { puts '- Thor::Hollaback' }
+      desc "alpha", "Alpha command"
+      after { puts "- Thor::Hollaback" }
       def alpha
-        puts 'How are you?'
+        puts "How are you?"
       end
 
-      desc 'beta', 'Beta command'
+      desc "beta", "Beta command"
       before :say_hello
       around :say
       def beta
-        puts 'Repeating myself'
+        puts "Repeating myself"
       end
 
       no_commands do
         def say_hello
-          puts 'Hello!'
+          puts "Hello!"
         end
 
         def say_goodbye
-          puts 'Goodbye!'
+          puts "Goodbye!"
         end
 
         def say
-          puts 'Speaking...'
+          puts "Speaking..."
           yield
-          puts '...done.'
+          puts "...done."
         end
       end
     end
 
     class EmptyCLI < Thor
-      desc 'gamma', 'Gamma command'
+      desc "gamma", "Gamma command"
       def gamma
-        print 'Hello world'
+        print "Hello world"
       end
     end
 
     def test_alpha
-      stdout, = capture_io { CallbackCLI.start(['alpha']) }
+      stdout, = capture_io { CallbackCLI.start(["alpha"]) }
       expected = [
-        'Speaking...', 'Hello!', 'How are you?',
-        '- Thor::Hollaback', 'Goodbye!', '...done.'
+        "Speaking...",
+        "Hello!",
+        "How are you?",
+        "- Thor::Hollaback",
+        "Goodbye!",
+        "...done."
       ]
       assert_equal expected, stdout.split("\n")
     end
 
     def test_beta
-      stdout, = capture_io { CallbackCLI.start(['beta']) }
+      stdout, = capture_io { CallbackCLI.start(["beta"]) }
       expected = [
-        'Speaking...', 'Hello!', 'Speaking...', 'Hello!',
-        'Repeating myself', '...done.', 'Goodbye!', '...done.'
+        "Speaking...",
+        "Hello!",
+        "Speaking...",
+        "Hello!",
+        "Repeating myself",
+        "...done.",
+        "Goodbye!",
+        "...done."
       ]
       assert_equal expected, stdout.split("\n")
     end
 
     def test_empty
-      stdout, = capture_io { EmptyCLI.start(['gamma']) }
-      assert_equal 'Hello world', stdout
+      stdout, = capture_io { EmptyCLI.start(["gamma"]) }
+      assert_equal "Hello world", stdout
     end
 
     def test_bad_command
-      stdout, = capture_io { Class.new(Thor) { def command; end } }
-      assert_operator stdout, :start_with?, '[WARNING]'
+      stdout, =
+        capture_io do
+          Class.new(Thor) do
+            def command
+            end
+          end
+        end
+      assert_operator stdout, :start_with?, "[WARNING]"
     end
 
     def test_version

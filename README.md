@@ -10,7 +10,7 @@ Adds callbacks to thor commands.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'thor-hollaback'
+gem "thor-hollaback"
 ```
 
 And then execute:
@@ -30,30 +30,30 @@ class CLI < Thor
   class_before :say_hello
   class_after :say_goodbye
 
-  desc 'first_test', 'First test command'
+  desc "first_test", "First test command"
   around :say
   def first_test
-    puts 'How are you?'
+    puts "How are you?"
   end
 
-  desc 'second_test', 'Second test command'
+  desc "second_test", "Second test command"
   def second_test
-    puts 'How are you?'
+    puts "How are you?"
   end
 
   no_commands do
     def say_hello
-      puts 'Hello!'
+      puts "Hello!"
     end
 
     def say_goodbye
-      puts 'Goodbye!'
+      puts "Goodbye!"
     end
 
     def say
-      puts 'Speaking...'
+      puts "Speaking..."
       yield
-      puts '...done.'
+      puts "...done."
     end
   end
 end
@@ -62,7 +62,7 @@ end
 When invoked, the above CLI results with:
 
 ```
-irb(main):001:0> CLI.start(['first_test'])
+irb(main):001:0> CLI.start(["first_test"])
 Hello!
 Speaking...
 How are you?
@@ -74,7 +74,7 @@ Goodbye!
 and
 
 ```
-irb(main):001:0> CLI.start(['second_test'])
+irb(main):001:0> CLI.start(["second_test"])
 Hello!
 How are you?
 Goodbye!
