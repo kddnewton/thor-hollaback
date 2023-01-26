@@ -46,6 +46,22 @@ class Thor
       end
     end
 
+    class ParentCLI < Thor
+      class ChildCLI < Thor
+        desc "child", "Child command"
+        before { puts "Hello from child" }
+        after { puts "Goodbye from child" }
+        def child
+          puts "Child"
+        end
+      end
+
+      desc "parent", "Parent command"
+      before { puts "Hello from parent" }
+      after { puts "Goodbye from parent" }
+      subcommand "parent", ChildCLI
+    end
+
     def test_alpha
       stdout, = capture_io { CallbackCLI.start(["alpha"]) }
       expected = [
@@ -88,6 +104,19 @@ class Thor
           end
         end
       assert_operator stdout, :start_with?, "[WARNING]"
+    end
+
+    def test_subcommand
+      stdout, = capture_io { ParentCLI.start(["parent", "child"]) }
+      expected = [
+        "Hello from parent",
+        "Hello from child",
+        "Child",
+        "Goodbye from child",
+        "Goodbye from parent"
+      ]
+
+      assert_equal expected, stdout.split("\n")
     end
 
     def test_version
