@@ -107,7 +107,7 @@ class Thor
     end
 
     def test_subcommand
-      stdout, = capture_io { ParentCLI.start(["parent", "child"]) }
+      stdout, = capture_io { ParentCLI.start(%w[parent child]) }
       expected = [
         "Hello from parent",
         "Hello from child",
