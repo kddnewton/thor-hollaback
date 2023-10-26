@@ -9,7 +9,6 @@ GEM
   remote: https://rubygems.org/
   specs:
     ast (2.4.2)
-    base64 (0.1.1)
     docile (1.4.0)
     hollaback (0.1.1)
     json (2.6.3)
@@ -25,8 +24,7 @@ GEM
     rake (13.0.6)
     regexp_parser (2.8.2)
     rexml (3.2.6)
-    rubocop (1.57.1)
-      base64 (~> 0.1.1)
+    rubocop (1.57.2)
       json (~> 2.3)
       language_server-protocol (>= 3.17.0)
       parallel (~> 1.10)
