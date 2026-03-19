@@ -15,7 +15,7 @@ GEM
     docile (1.4.0)
     drb (2.2.3)
     hollaback (0.1.1)
-    json (2.18.1)
+    json (2.19.2)
     json-schema (6.1.0)
       addressable (~> 2.8)
       bigdecimal (>= 3.1, < 5)
